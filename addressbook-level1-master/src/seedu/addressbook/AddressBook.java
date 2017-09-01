@@ -425,7 +425,6 @@ public class AddressBook {
 
         // checks if args are valid (decode result will not be present if the person is invalid)
         if (!decodeResult.isPresent()) {
-            System.out.println("**********************************1" );
 
             return getMessageForInvalidCommandInput(COMMAND_ADD_WORD, getUsageInfoForAddCommand());
         }
@@ -1062,8 +1061,6 @@ public class AddressBook {
     private static boolean isPersonDataValid(String[] person) { //****************************************************************************************************************************************************
         System.out.println("Check this:" + person[PERSON_DATA_INDEX_EMAIL]);
         System.out.println("Check this:" + person[PERSON_DATA_INDEX_WORKPLACE]);
-        System.out.println("isPersonDataValid: " + isPersonNameValid(person[PERSON_DATA_INDEX_NAME])+ " " + isPersonPhoneValid(person[PERSON_DATA_INDEX_PHONE]) +
-                " " + isPersonEmailValid(person[PERSON_DATA_INDEX_EMAIL]) + " " + isPersonWorkplaceValid(person[PERSON_DATA_INDEX_WORKPLACE]));
         return isPersonNameValid(person[PERSON_DATA_INDEX_NAME])
                 && isPersonPhoneValid(person[PERSON_DATA_INDEX_PHONE])
                 && isPersonEmailValid(person[PERSON_DATA_INDEX_EMAIL])
@@ -1105,7 +1102,8 @@ public class AddressBook {
      * @return whether arg is a valid person email
      */
     private static boolean isPersonEmailValid(String email) {
-        return email.matches(""); // email is [non-whitespace]@[non-whitespace].[non-whitespace]
+        return true;
+        //return email.matches("(\\w|\\s)+"); // email is [non-whitespace]@[non-whitespace].[non-whitespace]
         //TODO: implement a more permissive validation
     }
     /**
